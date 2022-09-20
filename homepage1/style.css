@@ -1,0 +1,252 @@
+:root{
+    --fontColor :  #fff9f9;
+    --bgColor : #ead5d3;
+    --bgColor2 : #ead5d3;
+}
+
+*{margin: 0; padding: 0;}
+a{
+    text-decoration: none;
+    color: var(--fontColor);
+    cursor: none;
+    display: inline-block;
+    transition: 1.5s ease;
+    position: relative;
+    z-index: 10;
+}
+ul{
+    list-style: none;
+}
+body{
+    position: relative;
+    width: 100%;
+    text-transform: uppercase;
+    color: var(--fontColor);
+    cursor: none;
+    font-size: 10px;
+    background-color: var(--bgColor2);
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+header{
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1rem;
+}
+header h1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15rem;
+    right: 2.6rem;
+    transition: all .6s ease;
+}
+.logo a{
+    padding: 0 0.5rem;
+
+}
+.logoSub{
+    text-align: right;
+    right: -50%;
+}
+.logoSub a{
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+.wrap{
+    position: relative;
+    width: 100%;
+}
+.box{
+    position:fixed;
+    width: 100%;
+    height: 1200px;
+    transform: perspective(1200px);
+    box-shadow: 0 0 100px 100px rgba(0, 0, 0, 0.26);
+    transition: all 0.6s ease;
+    background-color: var(--bgColor2);
+}
+.box1{
+    transform: translate3d(0, 0, 0);
+}
+.box2{
+    transform: translate3d(0, 100%, 0);
+}
+.box3{
+    transform: translate3d(0, 200%, 0);
+}
+.box4{
+    transform: translate3d(0, 300%, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box5{
+    transform: translate3d(0, 400%, 0);
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+    background-color: var(--bgColor2);
+    transition: all 0.6s ease;
+}
+.box6{
+    transform: translate3d(0, 700%, 0);
+    background-color: orange;
+}
+
+video{
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.pager{
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    width: 12rem;
+    height: 1200px;
+    transform: perspective(1200px);
+    transform: translate3d(0, 0, 0);
+    transition: all 0.6s ease;
+
+}
+.pagerInner{
+    position: relative;
+    height: 100vh;
+
+}
+.pg{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+.pg a{
+    font-weight: bold;
+    transform: rotate(-90deg);
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.circle { 
+    position: fixed;
+    z-index: 11;
+    top: 0; 
+    left: 0; 
+    width: 13px; 
+    height: 13px; 
+    border-radius: 50%; 
+    border: 2px solid #fff;
+    transform: translate(-50%, -50%); 
+    mix-blend-mode: difference;
+}
+.changer{
+    border: 2px solid transparent;
+    background-color: #fff;
+}
+
+
+.intro{
+    width: 50%;
+    height: 50%;
+    color: #111;
+    font-size: 2.5rem;
+}
+
+.bgBox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url(https://cdn.pixabay.com/photo/2020/07/06/13/21/mercedes-5377019_960_720.jpg) no-repeat center/cover; */
+}  
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.bg > li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .6s ease;
+    opacity: 0;
+}
+
+.bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.portWrap{
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+.portWrap > li{
+    font-size: 3rem;
+    text-align: center;
+    text-transform:uppercase ;
+
+}
+.portWrap > li a{
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    transition: all .6s ease;
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    font-size: 1.8rem;
+
+} 
+.portWrap > li  a::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    background-color: #fff;
+    transition: all .6s ease;
+}
+.portWrap > li a:hover::before{
+    width: 100%;
+}
+
+footer{
+    position: fixed;
+    bottom: -50%;
+    width: 100%;
+    height: 4rem;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .6s ease;
+    
+}
+footer p{
+    padding: 0 1rem;
+    font-size: 1rem;
+}
