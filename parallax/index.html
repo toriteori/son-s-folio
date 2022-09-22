@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        html,body{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        body::-webkit-scrollbar{
+            width: 0;
+        }
+        .wrap{
+            position: relative;
+            width: 100%;
+            height: 500vh;
+        }
+        .box{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 110vh;
+            transition: all 0.6s ease;
+            box-shadow: 0 0 30px 10px  rgba(129, 129, 129, 0.5);
+        }
+
+        .box1{
+            background-color: rgba(255, 0, 0, 0.404);
+            top: 0;
+        }
+        .box2{
+            background-color: orange;
+            top: 100%;
+        }
+        .box3{
+            background-color: yellow;
+            top: 200%;
+        }
+        .box4{
+            background-color: green;
+            top: 300%;
+        }
+        .box5{
+            background-color: blue;
+            top: 400%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+    </div>
+    <script>
+
+document.addEventListener('DOMContentLoaded',function(){
+
+   
+        window.addEventListener('load', function(){
+            resizeOnOff();
+            scrollOnOff();
+            
+
+
+        });
+        window.addEventListener('resize', function(){
+            resizeOnOff();
+            scrollOnOff();
+
+        });
+        
+        let box = document.querySelectorAll('.box');
+        let boxInfo = [];
+
+
+        box.forEach(function(item,index){
+            boxInfo.push(item.getBoundingClientRect().top);
+            item.style.top = `${index * 100}%`;
+        });
+
+
+        function resizeOnOff(){
+        let innerW = window.innerWidth;
+
+        if(innerW > 920){
+                box.forEach(function(item,index){
+                    item.style.position = 'fixed';
+                });
+            }else{
+                box.forEach(function(item){
+                    item.style.position = 'sticky';
+                    item.style.top = '0';
+                });
+            }
+        };
+
+
+
+        function scrollOnOff(){
+        let innerW = window.innerWidth;
+
+        if(innerW > 920){
+            window.addEventListener('scroll', farallax); 
+            }else{
+            window.removeEventListener('scroll',farallax);
+            }
+        };//scroll 함수
+
+        function farallax(){
+            let rollY = window.scrollY;  
+
+            box.forEach(function(item , index){
+                let currentY = `${boxInfo[index] - rollY}`;
+
+
+                if(rollY > boxInfo[index]){
+                    currentY *= 0.5;
+                }
+                item.style.top = `${currentY}px`;
+            });
+        };//farallax 효과 함수
+
+
+    });//DOMContentLoaded 
+
+    </script>
+</body>
+</html>
