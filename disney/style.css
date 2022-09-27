@@ -52,10 +52,12 @@ nav > a{
     position: absolute;
     display: block;
     width: 6.5rem;
-    line-height: 3rem;
     font-size: 1.1rem;
     border-radius: 5px;
     text-align: center;
+}
+nav > a > span{
+    line-height: 3rem;
 }
 .join{
     right: 10.5rem;
