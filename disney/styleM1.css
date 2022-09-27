@@ -4,7 +4,7 @@ html,body{
 header nav{
     line-height: 3rem;
 }
-nav > a{
+nav > a > span{
     line-height: 2.5rem;
 }
 .page1{
