@@ -1,0 +1,296 @@
+:root{
+    --minionColor : #ffed99;
+    --dark : #111;
+    --light : #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    background-color: var(--dark);
+}
+body::-webkit-scrollbar{
+    width: 5px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #ffec997e;
+    border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb:hover{
+    background-color: #ffed99;
+}
+header{
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    height: 3rem;
+}
+.mode{
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 1rem;
+    gap: 1rem;
+}
+.mode i{
+    font-size: 1.5rem;
+    color: var(--light);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all .6s ease;
+}
+
+.open{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: var(--dark);
+    transition: all .6s ease;
+    /* display: none; */
+
+}
+.door{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    transition: all .6s ease;
+}
+
+.deco{
+    position: absolute;
+    width: 200px;
+    font-size: 3rem;
+    line-height: 60px;
+    display: inline-block;
+    text-align: center;
+    color: var(--light);
+    transition: all .6s ease;
+}
+.welcome{
+    top: 30%;
+    left: 15%;
+}
+.myName{
+    bottom: 30%;
+    right: 15%;
+}
+
+@media all and (max-width: 1000px){
+    .deco{
+        width: 120px;
+        font-size: 2.5rem;
+    }
+}
+.switch{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    width: 200px;
+    height: 100px;
+    transition: all .6s ease;
+    background: linear-gradient(to right, #ffed99 20%, #6667ab 66%, #ffed99 );
+    background-size: 400% 400%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: switchColor 10s ease infinite;
+    -webkit-animation: switchColor 10s ease infinite;
+}
+
+@-webkit-keyframes switchColor {
+    0%{background-position:50% 100%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes switchColor { 
+    0%{background-position:100% 100%}
+    25%{background-position:44% 50%}
+    50%{background-position:66% 50%}
+    75%{background-position: 88% 50%}
+    100%{background-position:100% 50%}
+   
+}
+#switchTxt{
+    width: 190px;
+    line-height: 90px;
+    text-align: center;
+    display: block;
+    background-color: var(--dark);
+    color: var(--light);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition: all .6s ease;
+}
+
+#switchTxt:before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 100%;
+    background-color: var(--dark);
+    transition: all .6s ease;
+}
+#switchTxt:hover::before{
+    width: 0%;
+}
+
+.contentWrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .6s ease;
+    overflow: hidden;
+    background-color: var(--dark);
+}
+
+.content{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: all .6s ease;
+}
+.intro{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+}
+
+.intro a{
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    font-size: 3rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--light);
+}
+.intro a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: radial-gradient(ellipse, #6667ab, #ffed99);
+    transition: all 0.6s ease;
+}
+.intro a:hover::before{
+    width: 100%;
+}
+
+.cardWrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center ;
+    transform: translateX(-20%);
+}
+.cardWrap::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right,  transparent 10%, var(--dark));
+    transition:  .6s ease;
+}
+.card{
+    position: absolute;
+    width: 400px;
+    height: 700px;
+    border-radius: 15px;
+    transition: all .6s ease-in-out;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit  : cover;
+}
+.btnBox{
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 3rem;
+}
+.nextBtn{
+    line-height: 80px;
+    cursor: pointer;
+}
+.prevBtn{
+    line-height: 80px;
+    cursor: pointer;
+}
+.btnBox i{
+    font-size: 2rem;
+    color: var(--light);
+}
+
+@media all and (max-width: 1400px){
+    .intro{
+        left: 10%;
+    }
+    
+    .deco{
+        width: 120px;
+        font-size: 2rem;
+    }
+}
+@media all and (max-width: 800px){
+    .intro{
+        left: 10%;
+    }
+    .intro a{
+        font-size: 1.5rem;
+    }
+    .card{
+        width: 300px;
+        height: 550px;
+    }
+}
+@media all and (max-width: 640px){
+    .intro{
+        left: 5%;
+    }
+    .intro a{
+        font-size: 1rem;
+    }
+    .card{
+        width: 250px;
+        height: 550px;
+    }
+    .deco{
+        font-size: 1.5rem;
+    }
+   
+}
