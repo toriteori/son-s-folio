@@ -1,5 +1,4 @@
     
-           
         let openEvent = document.querySelector('.open'),
         openBtn = document.querySelector('.switch'),
         leftDoor = document.querySelector('.Ldoor'),
@@ -62,35 +61,27 @@
 
         
         let newX =  0;
-        
+
         nextBtn.addEventListener('click',function(){
-            newX += cardW;
-            newX = Math.min(Math.max(0, newX), 1600);
-            item.style.transform = `matrix(1, 0, 0, 1, ${currentX - newX}, 0)`;
-
-
-            if(currentX - newX < 0){
-                item.style.transform = `matrix(0.9, 0, 0, 0.9, 0, 0)`;
-                item.style.opacity = '0';
-            }else{
-                item.style.opacity = '1';
-            }
+            FadeSlide(cardW);
         });
-
         prevBtn.addEventListener('click',function(){
-            newX -= cardW;
-            newX = Math.min(Math.max(0, newX), 1600);
-            item.style.transform = `matrix(1, 0, 0, 1, ${currentX - newX}, 0)`;
-
-
-            if(currentX - newX < 0){
-                item.style.transform = `matrix(0.9, 0, 0, 0.9, 0, 0)`;
-                item.style.opacity = '0';
-            }else{
-                item.style.opacity = '1';
-            }
+            FadeSlide(-cardW);
         });
+
+        function FadeSlide( cardSize ){
+                newX += cardSize;
+                newX = Math.min(Math.max(0, newX), 1600);
+                item.style.transform = `matrix(1, 0, 0, 1, ${currentX - newX }, 0)`;
+                if(currentX - newX < -1){
+                    item.style.transform = `matrix(0.9, 0, 0, 0.9, 0, 0)`;
+                    item.style.opacity = '0';
+                }else{
+                    item.style.opacity = '1';
+                }
+            };
     });
+
 
    
 
